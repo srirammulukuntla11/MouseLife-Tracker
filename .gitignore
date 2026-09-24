@@ -1,0 +1,116 @@
+# ==============================================================================
+# MouseLife Tracker — Git Ignore Rules
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Environment & Secrets (Never commit credentials)
+# ------------------------------------------------------------------------------
+*.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+.env*
+!.env.example
+!*/.env.example
+
+# ------------------------------------------------------------------------------
+# 2. Dependencies
+# ------------------------------------------------------------------------------
+node_modules/
+*/node_modules/
+package-lock.json.bak
+
+# ------------------------------------------------------------------------------
+# 3. Python Virtual Environments & Bytecode
+# ------------------------------------------------------------------------------
+__pycache__/
+*/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+*/build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+*/venv/
+.venv/
+*/.venv/
+env/
+*/env/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+
+# ------------------------------------------------------------------------------
+# 4. Compiled Binaries & Distribution Artifacts
+# (Production .exe files should be published via GitHub Releases, not git history)
+# ------------------------------------------------------------------------------
+dist/
+*/dist/
+*.exe
+*.dll
+*.pyd
+
+# ------------------------------------------------------------------------------
+# 5. Local Runtime Data & Databases
+# (Prevents committing personal click counts, SQLite databases, and session state)
+# ------------------------------------------------------------------------------
+data/
+*/data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# ------------------------------------------------------------------------------
+# 6. Logs & Diagnostics
+# ------------------------------------------------------------------------------
+logs/
+*/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ------------------------------------------------------------------------------
+# 7. IDE, Editor, & Operating System Files
+# ------------------------------------------------------------------------------
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+.gemini/
+
+# ------------------------------------------------------------------------------
+# 8. Temporary & Cache Files
+# ------------------------------------------------------------------------------
+tmp/
+temp/
+*.tmp
+.vite/
