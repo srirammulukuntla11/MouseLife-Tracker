@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MouseLife Tracker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon">🖱️</span>
+        <div class="brand-text">
+          <h1 class="brand-title">MouseLife Tracker</h1>
+          <span class="device-name" id="deviceName">Portronics Wireless Mouse</span>
+        </div>
+      </div>
+      <div class="status-badge" id="statusBadge" title="Current tracking system status">
+        <span class="status-dot" id="statusDot"></span>
+        <span class="status-text" id="statusText">Connecting...</span>
+      </div>
+    </header>
+
+    <!-- Offline / Error Banner -->
+    <div class="error-banner hidden" id="errorBanner">
+      <div class="error-content">
+        <span class="error-icon">⚠️</span>
+        <div class="error-text">
+          <div class="error-title" id="errorTitle">Backend Offline</div>
+          <div class="error-msg" id="errorMsg">Cannot reach http://localhost:5000</div>
+        </div>
+      </div>
+      <button class="btn-retry" id="retryBtn">Retry</button>
+    </div>
+
+    <!-- Lifespan Card (Hero) -->
+    <section class="lifespan-card">
+      <div class="card-label">CLICKS REMAINING</div>
+      <div class="remaining-value" id="remainingClicks">--</div>
+
+      <div class="progress-section">
+        <div class="progress-header">
+          <span class="progress-label">Mouse Life Remaining</span>
+          <span class="progress-percentage" id="lifeRemainingPercentage">--%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="stats-section">
+      <!-- Total Clicks Row -->
+      <div class="total-row">
+        <span class="stat-name">Total Physical Clicks</span>
+        <span class="stat-val highlight" id="totalClicks">--</span>
+      </div>
+
+      <!-- Button Breakdown Grid -->
+      <div class="buttons-grid">
+        <div class="btn-card left">
+          <div class="btn-card-header">
+            <span class="btn-card-dot left-dot"></span>
+            <span class="btn-card-title">Left</span>
+          </div>
+          <div class="btn-card-val" id="leftClicks">--</div>
+          <div class="btn-card-pct" id="leftPct">--%</div>
+        </div>
+
+        <div class="btn-card right">
+          <div class="btn-card-header">
+            <span class="btn-card-dot right-dot"></span>
+            <span class="btn-card-title">Right</span>
+          </div>
+          <div class="btn-card-val" id="rightClicks">--</div>
+          <div class="btn-card-pct" id="rightPct">--%</div>
+        </div>
+
+        <div class="btn-card middle">
+          <div class="btn-card-header">
+            <span class="btn-card-dot middle-dot"></span>
+            <span class="btn-card-title">Middle</span>
+          </div>
+          <div class="btn-card-val" id="middleClicks">--</div>
+          <div class="btn-card-pct" id="middlePct">--%</div>
+        </div>
+      </div>
+
+      <!-- Meta Info Rows -->
+      <div class="info-rows">
+        <div class="info-row">
+          <span class="info-label">Rated Switch Life</span>
+          <span class="info-val" id="ratedClicks">3,000,000</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Lifespan Used</span>
+          <span class="info-val" id="lifeUsed">--%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Controls -->
+    <footer class="footer">
+      <div class="sync-info">
+        <span class="sync-label">Last Synced:</span>
+        <span class="sync-val" id="lastUpdated">Checking...</span>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn btn-secondary" id="refreshBtn" title="Fetch latest statistics">
+          <svg class="btn-icon refresh-icon" id="refreshIcon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l6.23-5.19"/>
+          </svg>
+          <span>Refresh</span>
+        </button>
+
+        <button class="btn btn-primary" id="openDashboardBtn" title="Open full React dashboard (http://localhost:5173/)">
+          <span>Open Full Dashboard</span>
+          <svg class="btn-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
